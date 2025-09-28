@@ -84,16 +84,24 @@ communication backend can work.
     os.environ["MASTER_PORT"] = "29500"
 
 Constructing our embedding model
+
+임베딩 모델 구성하기
 --------------------------------
 
 Here we use TorchRec offering of
 `EmbeddingBagCollection <https://github.com/facebookresearch/torchrec/blob/main/torchrec/modules/embedding_modules.py#L59>`_
 to construct our embedding bag model with embedding tables.
 
+임베딩 테이블을 사용하여 임베딩백 모델을 구성하기 위해 
+`EmbeddingBagCollection <https://github.com/facebookresearch/torchrec/blob/main/torchrec/modules/embedding_modules.py#L59>`_ 
+에서 제공하는 TorchRec 제품을 사용합니다.
+
 Here, we create an EmbeddingBagCollection (EBC) with four embedding
 bags. We have two types of tables: large tables and small tables
 differentiated by their row size difference: 4096 vs 1024. Each table is
 still represented by 64 dimension embedding.
+
+4개의 임베딩백을 가진 EmbeddingBagCollection(EBC)를 만듭니다. 두 가지 유형의 테이블이 있습니다: 행 크기의 차이에 따라 큰 테이블과 작은 테이블은 차별화됩니다: 4096 대 1024.
 
 We configure the ``ParameterConstraints`` data structure for the tables,
 which provides hints for the model parallel API to help decide the
